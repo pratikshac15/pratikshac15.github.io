@@ -271,7 +271,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 /* ---------- Recognition ---------- */
 .people{background:#eee7e1;padding:110px 5.5vw;display:grid;grid-template-columns:.72fr 1.28fr;gap:10vw}
 .people-big{font-family:Georgia,serif;font-size:clamp(43px,4.7vw,68px);line-height:.96;letter-spacing:-.045em}
-.people-big>span{display:block;color:var(--wine);margin-bottom:18px}
+.people-big>em{display:block;color:var(--wine);margin-bottom:18px;font-weight:400}
 .people-notes{border-top:1px solid #cfc1ba}
 .people-notes article{padding:28px 0;border-bottom:1px solid #cfc1ba;opacity:.85;transform:translateY(12px);transition:.35s ease}.people-notes article.in{opacity:1;transform:none}
 .people-notes article>span{font-family:"DM Mono",monospace;font-size:10px;color:var(--wine)}
