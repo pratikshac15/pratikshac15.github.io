@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Portfolio of Pratiksha Chaudhari, a PhD candidate and computer scientist working across AI, scientific computing, machine learning, and research software.">
+<meta name="theme-color" content="#fbf8f3">
+<title>Pratiksha Chaudhari | Computer Scientist & Researcher</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav" aria-label="Primary navigation">
+  <a class="logo" href="#home" aria-label="Pratiksha Chaudhari home">PC<span>●</span></a>
+  <div class="navlinks"><a href="#thinking">Thinking</a><a href="#work">Projects</a><a href="#papers">Publications</a><a href="#perspective">Perspective</a></div>
+  <a class="nav-contact" href="#contact">Say hello ↘</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-copyblock">
+    <h1 class="hero-name-v15">PRATIKSHA<br><span>CHAUDHARI</span></h1>
+    <p class="hero-role">COMPUTER SCIENTIST · RESEARCHER · PhD CANDIDATE</p>
+    <p class="hero-context">University of Alabama · Computer Science · Tuscaloosa, Alabama</p>
+    <p class="hero-intro-v15">I work at the intersection of AI, scientific computing, and software, turning complex data into reliable models, scalable systems, and practical tools for real-world problems.</p>
+    <p class="hero-note-v15 hero-note-inline">Sometimes through code,<br>Sometimes through a camera,<br>Sometimes with a pencil.</p>
+    <div class="hero-actions">
+      <a href="#work">VIEW PROJECTS <span>↓</span></a>
+      <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">RESUME <span>↗</span></a>
+    </div>
+  </div>
+  <div class="portrait-wrap">
+    <div class="portrait-shape"><img src="assets/portrait.jpg" alt="Portrait of Pratiksha Chaudhari"></div>
+  </div>
+</section>
+
+<section class="thinking" id="thinking">
+  <header class="section-head">
+    <div><p>THINGS I THINK ABOUT</p><h2>Questions that keep<br><em>pulling me in.</em></h2><p class="orbit-hint">Choose a topic to follow the question.</p></div>
+  </header>
+  <div class="thought-stage">
+    <div class="thought-orbit">
+      <button class="thought active" data-key="PERCEPTION" data-q="How do machines make sense of what they see?" data-copy="This thread runs through scientific imaging, computer vision, particle characterization, classification, detection, segmentation, and environmental imagery."><span>.</span>PERCEPTION</button>
+      <button class="thought" data-key="SIGNALS" data-q="What can changing signals reveal?" data-copy="Sensor streams, voice waveforms, multivariate time series, hydrologic records, and experimental measurements all ask us to find structure in change."><span>.</span>SIGNALS</button>
+      <button class="thought" data-key="ROBUSTNESS" data-q="What happens when clean assumptions disappear?" data-copy="Adversarial attacks, noisy measurements, heterogeneous devices, imperfect data, and evaluation make trustworthiness part of the engineering problem."><span>.</span>ROBUSTNESS</button>
+      <button class="thought" data-key="SCALE" data-q="What changes when a research problem grows?" data-copy="Decades of environmental data, thousands of catchments, distributed processing, cloud storage, memory constraints, and multi-architecture software turn experiments into infrastructure."><span>.</span>SCALE</button>
+      <button class="thought" data-key="SYSTEMS" data-q="How does an idea become something another researcher can actually run?" data-copy="Reproducible environments, pipelines, containers, CI, interfaces, configuration, testing, and open-source scientific software are often what make research usable."><span>.</span>SYSTEMS</button>
+      <div class="thought-display">
+        <small id="thoughtKey">PERCEPTION</small>
+        <h3 id="thoughtQ">How do machines make sense of what they see?</h3>
+        <p id="thoughtCopy">This thread runs through scientific imaging, computer vision, particle characterization, classification, detection, segmentation, and environmental imagery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <header class="work-intro-v16">
+    <div>
+      <p class="eyebrow">A CLOSER LOOK AT WHAT I’VE WORKED ON.</p>
+      <h2>Selected <em>Projects</em></h2>
+      <p class="work-lede">Projects spanning hydrology, scientific imaging, intelligent sensing, and human-centered AI, each shaped by a different question and the technical work required to answer it.</p>
+    </div>
+  </header>
+
+  <div class="story-projects">
+    <article class="story story-robust">
+      <div class="story-kicker"><span class="story-number">01</span><span class="story-label">PHD DISSERTATION THESIS</span></div>
+      <div class="story-copy">
+        <p class="story-question">Getting the prediction right was only the first question. Could the system remain trustworthy when deliberately challenged?</p>
+        <h3>First, make the building understand.<br>Then try to fool it.</h3>
+        <p>My dissertation research progresses from <strong>Translution</strong>, a hybrid Transformer-CNN architecture that learns local and long-range patterns in multivariate sensor data, to <strong>ADS-Guard</strong>, a defense framework designed to detect and sanitize adversarial perturbations. Together, the work asks how intelligent sensing can remain accurate and trustworthy when conditions stop being friendly.</p>
+        <div class="evidence-grid evidence-grid-3 thesis-results" aria-label="PhD research results">
+          <div><strong>98.5%</strong><span>Translution accuracy</span></div>
+          <div><strong>48.6% → 86.7%</strong><span>ADS-Guard recovery</span></div>
+          <div><strong>5 × 3</strong><span>architectures × datasets</span></div>
+        </div>
+        <div class="story-tags">TRANSFORMER · CNN · ADAPTIVE GATING · TIME SERIES · ADVERSARIAL ML · FGSM · PGD · AUTOENCODER DEFENSE</div>
+        <div class="story-links">
+          <a href="https://doi.org/10.3390/electronics14163323" target="_blank" rel="noopener noreferrer">TRANSLUTION PAPER ↗</a>
+          <a href="https://doi.org/10.3390/s26165039" target="_blank" rel="noopener noreferrer">ADS-GUARD PAPER ↗</a>
+        </div>
+      </div>
+      <div class="robust-viz" aria-hidden="true">
+        <div class="signal clean"><span>CLEAN SIGNAL</span><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="attack-arrow">ATTACK →</div>
+        <div class="signal attacked"><span>PERTURBED</span><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="guard">ADS<br>GUARD</div>
+        <div class="signal restored"><span>RESTORED</span><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </article>
+
+    <article class="story story-ciroh">
+      <div class="story-kicker"><span class="story-number">02</span><span class="story-label">WATER AT SCALE</span></div>
+      <div class="story-copy">
+        <p class="story-question">What does it take to make national-scale hydrologic data and models actually usable?</p>
+        <h3>Making decades of<br><em>water data usable.</em></h3>
+        <p>My work with CIROH lives between environmental science and software infrastructure, connecting NOAA NextGen/ngen modeling, National Water Model and AORC data, geospatial processing, cloud workflows, containers, configuration generation, testing, and reproducibility into systems researchers can actually run.</p>
+        <div class="evidence-grid evidence-grid-3" aria-label="Hydrology project highlights">
+       </div>
+        <div class="story-tags">NGIAB · NWM · AORC · DOCKER · GITHUB ACTIONS · AWS</div>
+        <div class="story-links">
+          <a href="https://github.com/CIROH-UA" target="_blank" rel="noopener noreferrer">CIROH-UA↗</a>
+        </div>
+      </div>
+      <div class="river-field" aria-hidden="true">
+        <svg viewBox="0 0 700 520" preserveAspectRatio="none">
+          <path d="M-30 80 C110 10 150 190 270 130 S430 30 500 160 S600 300 750 210"/>
+          <path d="M-20 145 C90 70 180 260 310 185 S465 105 520 245 S650 390 740 300"/>
+          <path d="M-40 215 C70 135 195 330 330 255 S490 185 555 320 S650 450 750 390"/>
+          <path d="M20 0 C150 120 80 220 230 280 S410 275 420 410 S550 500 680 460"/>
+          <path class="river-main" d="M50 -20 C100 120 260 95 250 235 S370 340 470 305 S530 430 690 540"/>
+        </svg>
+        <span class="river-label r1">DATA</span><span class="river-label r2">MODEL</span><span class="river-label r3">RUN</span>
+      </div>
+    </article>
+
+    <article class="story story-micro">
+      <div class="story-kicker"><span class="story-number">03</span><span class="story-label">SEEING WHAT FLOWS BY</span></div>
+      <div class="micro-visual" aria-hidden="true">
+        <div class="channel-line"></div>
+        <i class="particle p1"></i><i class="particle p2"></i><i class="particle p3"></i><i class="particle p4"></i><i class="particle p5"></i>
+        <div class="detect-box d1"><span>particle</span></div><div class="detect-box d2"><span>detect</span></div><div class="scan-line"></div>
+      </div>
+      <div class="story-copy">
+        <p class="story-question">Can tiny particles be detected and classified while the water is still moving?</p>
+        <h3>Finding microplastics<br><em>in motion.</em></h3>
+        <p>A computer-vision framework for detecting and classifying microplastics under realistic water-monitoring conditions. The study used 4,260 high-resolution images across seven particle categories and introduced Yolov7CS, an attention-enhanced YOLOv7 model integrating channel and spatial attention through CBAM. The system was evaluated across high-resolution, noise-degraded, and real-world imaging conditions, then validated in a water-circulation monitoring platform. </p>
+        <div class="evidence-grid" aria-label="Microplastics project results">
+          <div><strong>4,260</strong><span>high-resolution images</span></div>
+          <div><strong>7</strong><span>particle categories</span></div>
+          <div><strong>Yolov7CS</strong><span>YOLOv7 + CBAM attention</span></div>
+          <div><strong>Top</strong><span>Precision · mAP50–95 · F1</span></div>
+        </div>
+        <div class="story-tags">IMAGING · RAMAN · OPENCV · TENSORFLOW · REAL-TIME INFERENCE · QT</div>
+      </div>
+    </article>
+
+    <article class="story story-voice">
+      <div class="story-kicker"><span class="story-number">04</span><span class="story-label">AN AI THAT LISTENS BACK</span></div>
+      <div class="voice-viz" aria-hidden="true">
+        <div class="voice-circle"><span>LISTEN</span></div>
+        <div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="voice-feedback">ANALYZE <span>→</span> RESPOND</div>
+      </div>
+      <div class="story-copy">
+        <p class="story-question">What if intelligent feedback could respond while you perform?</p>
+        <h3>An AI that doesn't<br>just listen. <em>It responds.</em></h3>
+        <p>The AI Voice Coach explores a more human side of intelligent systems: combining voice signals, waveform information, body visualization, and synchronized feedback into an interactive experience for singers. Here, the challenge isn't only understanding a signal. It is deciding how an intelligent system should communicate what it understands back to a person.</p>
+        <div class="evidence-grid evidence-grid-3" aria-label="Voice coach system components">
+          <div><strong>LISTEN</strong><span>capture voice signals</span></div>
+          <div><strong>ANALYZE</strong><span>waveform + body information</span></div>
+          <div><strong>RESPOND</strong><span>synchronized human feedback</span></div>
+        </div>
+        <div class="story-tags">VOICE · WAVEFORMS · MULTIMODAL FEEDBACK · INTERACTION · VISUALIZATION · HUMAN-CENTERED AI</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="papers" id="papers">
+  <header class="section-head">
+    <div><p>SOME QUESTIONS BECAME PAPERS.</p><h2><em>Publications</em></h2></div>
+  </header>
+  <div class="paper-list">
+    <a href="https://doi.org/10.3390/s26165039" target="_blank" rel="noopener noreferrer" class="paper"><span class="year">2026</span><div class="paper-main"><h3>ADS Guard: A Generalizable Defense Framework for Adversarially Robust Occupancy Detection in Smart Buildings</h3><p><strong>Pratiksha Chaudhari</strong>, Yang Xiao, Wei Sun</p></div><span class="venue">SENSORS</span><span class="arrow">↗</span></a>
+    <a href="https://doi.org/10.3390/electronics14163323" target="_blank" rel="noopener noreferrer" class="paper"><span class="year">2025</span><div class="paper-main"><h3>Translution: A Hybrid Transformer-Convolutional Architecture with Adaptive Gating for Occupancy Detection in Smart Buildings</h3><p><strong>Pratiksha Chaudhari</strong> et al.</p></div><span class="venue">ELECTRONICS</span><span class="arrow">↗</span></a>
+    <a href="https://doi.org/10.1109/IMBioC63524.2025.10989717" target="_blank" rel="noopener noreferrer" class="paper"><span class="year">2025</span><div class="paper-main"><h3>Underwater Communication Using Thin Flexible Microdome-Structured PVDF Devices</h3><p>Rong Fu, Kai Liu, Xinyu Zhang, <strong>Pratiksha Chaudhari</strong>, et al.</p></div><span class="venue">IEEE IMBIOC</span><span class="arrow">↗</span></a>
+    <a href="https://doi.org/10.3390/s24072123" target="_blank" rel="noopener noreferrer" class="paper"><span class="year">2024</span><div class="paper-main"><h3>Fundamentals, Algorithms, and Technologies of Occupancy Detection for Smart Buildings Using IoT Sensors</h3><p><strong>Pratiksha Chaudhari</strong>, Yang Xiao, Mark Ming-Cheng Cheng, Tieshan Li</p></div><span class="venue">SENSORS</span><span class="arrow">↗</span></a>
+  </div>
+  <a class="resume-link" href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">FULL RESUME <span>↗</span></a>
+</section>
+
+<section class="presentations" id="presentations">
+  <header class="section-head presentations-head">
+    <div><p>RESEARCH, OUT LOUD.</p><h2>Selected <em>Presentations</em></h2></div>
+  </header>
+  <div class="presentation-list">
+    <article class="presentation">
+      <span class="presentation-year">2025</span>
+      <div class="presentation-main"><h3>Historical Streamflow Reconstruction Using Hydro-Transformer Models with High-Confidence Gage Estimates</h3><p>American Geophysical Union (AGU) · New Orleans, LA</p></div>
+      <span class="presentation-type">AGU</span>
+    </article>
+    <article class="presentation">
+      <span class="presentation-year">2025</span>
+      <div class="presentation-main"><h3>Building a Streamflow Reanalysis Dataset using Deep Learning-Based Geostatistical Signal Separation</h3><p>American Geophysical Union (AGU) · New Orleans, LA</p></div>
+      <span class="presentation-type">AGU</span>
+    </article>
+    <article class="presentation">
+      <span class="presentation-year">2025</span>
+      <div class="presentation-main"><h3>Integrating ML Algorithms for Hydrological Workflow Optimization</h3><p>CIROH DevCon · Burlington, VT</p></div>
+      <span class="presentation-type">DEVCON</span>
+    </article>
+    <article class="presentation">
+      <span class="presentation-year">2024</span>
+      <div class="presentation-main"><h3>Using Object Detection Methods for Detection of Environmental Samples of Microplastic in Real-Time</h3><p>CIROH DevCon · Salt Lake City, UT</p></div>
+      <span class="presentation-type">DEVCON</span>
+    </article>
+  </div>
+</section>
+
+<section class="people" id="recognition">
+  <div class="people-big">Achievements<br>& Recognition</div>
+  <div class="people-notes">
+    <article><span>01</span><h3>3 Minute Thesis Winner</h3><p>Department of Computer Science · The University of Alabama · 2025. Distilling years of research into three clear minutes sharpened how I communicate technical work beyond the lab.</p></article>
+    <article><span>02</span><h3>Will Byington Student Officer of the Year</h3><p>The University of Alabama · 2024–2025. Leadership recognition for student organization service and impact.</p></article>
+    <article><span>03</span><h3>First Prize · Poster Presentation</h3><p>Savitribai Phule Pune University · 2019. Real-Time Child Activity Monitoring & Parental Control System</p></article>
+    <div class="leadership-note">
+      <h3><span>Leadership</span></h3>
+      <p><strong>Global Tide Mentor &amp; International Peer Advisory Council Member</strong> · The University of Alabama · 2025–2026<br><strong>President, Indian Students Association of Tuscaloosa</strong> · The University of Alabama · 2024–2025</p>
+    </div>
+  </div>
+</section>
+
+<section class="perspective" id="perspective">
+  <header class="perspective-head">
+    <span>AND I LOOK AWAY FROM THE SCREEN.</span>
+    <h2>Her<em> Perspective</em></h2>
+    <p>Traveling, photography, and sketching give me a different pace for the same habit: pay attention.</p>
+    <a href="https://www.instagram.com/her_perspective_05/" target="_blank" rel="noopener noreferrer">@her_perspective_05 ↗</a>
+  </header>
+  <div class="gallery">
+    <figure class="g-stars"><img src="assets/photos/stars.jpg" alt="Night sky over a natural rock arch"><figcaption>LOOK UP <span>01</span></figcaption></figure>
+    <div class="gallery-quote">things<br>I stopped<br>walking for.</div>
+    <figure class="g-coast"><img src="assets/photos/coast.jpg" alt="Coastal bridge and ocean"><figcaption>DISTANCE <span>02</span></figcaption></figure>
+    <figure class="g-yellow"><img src="assets/photos/yellowstone.jpg" alt="Geothermal landscape"><figcaption>PATTERN <span>03</span></figcaption></figure>
+    <figure class="g-sunset"><img src="assets/photos/sunset.jpg" alt="Ocean sunset"><figcaption>WAIT <span>04</span></figcaption></figure>
+  </div>
+  <div class="sketch-row">
+    <div><span>SKETCHBOOK</span><h3>Sometimes I trade<br>the keyboard for a pencil.</h3><p>The subject changes, but the instinct is the same: slow down enough to notice what is there.</p></div>
+    <div class="sketch-gallery">
+      <figure><img src="assets/photos/sketch.jpg" alt="Hand-drawn rainy-window sketch by Pratiksha"></figure>
+      <figure><img src="assets/photos/sketch-dancer.jpg" alt="Pencil sketch of a woman in a flowing dress by Pratiksha"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <span>SAY HELLO</span>
+  <h2>What could we<br><em>figure out together?</em></h2>
+  <p class="contact-intro">I’m interested in research and engineering opportunities across machine learning, scientific computing, computer vision, and intelligent systems.</p>
+  <div class="contact-links"><a href="mailto:pratikshac15@gmail.com">EMAIL ↗</a><a href="https://www.linkedin.com/in/pratikshac15" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a><a href="https://github.com/pratikshac15" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer">RESUME ↗</a></div>
+  <div class="contact-foot"><span>PRATIKSHA CHAUDHARI</span><span>2026</span></div>
+</section>
+</main>
+<script src="script.js"></script>
+</body></html>
