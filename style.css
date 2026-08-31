@@ -207,7 +207,9 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .restored i{background:var(--wine)}.restored span{color:var(--wine)}
 
 /* Hydrology */
-.story-ciroh{background:#f6f1f0;margin:0 -5.85vw;padding-left:5.85vw;padding-right:5.85vw}
+.story-ciroh{grid-template-columns:150px minmax(330px,.72fr) minmax(0,1fr);background:#f6f1f0;margin:0 -5.85vw;padding-left:5.85vw;padding-right:5.85vw}
+.story-ciroh .river-field{grid-column:2;grid-row:1}
+.story-ciroh .story-copy{grid-column:3;grid-row:1}
 .river-field{height:480px;position:relative}
 .river-field svg{width:100%;height:100%}.river-field path{fill:none;stroke:#a8aaa1;stroke-width:1}
 .river-field .river-main{stroke:var(--wine);stroke-width:2.2}
@@ -215,7 +217,9 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .r1{left:12%;top:20%}.r2{right:22%;top:44%}.r3{right:8%;bottom:12%}
 
 /* Microplastics */
-.story-micro{grid-template-columns:150px minmax(330px,.72fr) minmax(0,1fr)}
+.story-micro{grid-template-columns:150px minmax(0,1fr) minmax(330px,.72fr)}
+.story-micro .story-copy{grid-column:2;grid-row:1}
+.story-micro .micro-visual{grid-column:3;grid-row:1}
 .micro-visual{height:430px;border:1px solid var(--line);position:relative;overflow:hidden;background:#f1ded9}
 .channel-line{position:absolute;left:0;right:0;top:50%;height:80px;border-top:1px solid #c3a7a1;border-bottom:1px solid #c3a7a1;transform:translateY(-50%)}
 .particle{position:absolute;border:1px solid var(--wine);border-radius:50%}
@@ -223,7 +227,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .detect-box{position:absolute;border:1px solid var(--wine);width:58px;height:58px;font-family:"DM Mono",monospace;font-size:7px;color:var(--wine);padding:4px}
 .d1{left:47%;top:40%}.d2{left:68%;top:45%;width:42px;height:42px}
 .scan-line{position:absolute;top:0;bottom:0;width:1px;background:var(--wine);left:42%;box-shadow:0 0 12px rgba(90,39,55,.3)}
-.story-micro .story-copy{grid-column:3}
 
 /* Voice */
 .story-voice{grid-template-columns:150px minmax(330px,.72fr) minmax(0,1fr);background:var(--blush);margin:0 -5.85vw;padding-left:5.85vw;padding-right:5.85vw}
