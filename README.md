@@ -8,6 +8,8 @@ My work spans machine learning, scientific computing, computer vision, robust AI
 
 https://pratikshac15.github.io
 
+> **Note:** Resume download will be added shortly.
+
 ## Research & Work
 
 - Machine learning and robust AI
