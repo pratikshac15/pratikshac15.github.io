@@ -461,3 +461,7 @@ section[id],article[id]{scroll-margin-top:24px}
 
 /* ---------- Education uses sand to separate it from the hero ---------- */
 .education{background:#eee7e1;border-top:0}
+
+/* Education: degree level leads, subject follows */
+.edu .edu-level{font-family:Georgia,serif;font-weight:400;font-size:clamp(24px,2.1vw,30px);line-height:1.12;letter-spacing:-.02em;color:var(--wine);margin:0 0 12px}
+.edu .edu-field{font-family:"DM Mono",monospace;font-size:13px;letter-spacing:.04em;color:var(--ink);margin-bottom:6px}

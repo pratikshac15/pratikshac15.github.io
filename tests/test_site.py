@@ -196,9 +196,9 @@ class ContentTests(unittest.TestCase):
         rows = [[" ".join(e.text_content().split()) for e in row.xpath("./*")]
                 for row in edu.xpath(".//*[contains(concat(' ', @class, ' '), ' edu ')]")]
         self.assertEqual(rows, [
-            ["PhD", "Computer Science", "The University of Alabama · USA"],
-            ["MS", "Computer Science", "The University of Alabama · USA"],
-            ["BE", "Computer Engineering", "Savitribai Phule Pune University · India"],
+            ["Doctor of Philosophy (PhD)", "Computer Science", "The University of Alabama · USA"],
+            ["Master of Science (MS)", "Computer Science", "The University of Alabama · USA"],
+            ["Bachelor of Engineering (BE)", "Computer Engineering", "Savitribai Phule Pune University · India"],
         ])
         self.assertNotIn("Education", text_of("toolbox"), "education should not be duplicated in toolbox")
 
@@ -404,6 +404,16 @@ class BrowserTests(unittest.TestCase):
         colours = dict(bands)
         diff = sum(abs(a - b) for a, b in zip(parse(colours["home"]), parse(colours["education"])))
         self.assertGreaterEqual(diff, 25, "education blends into the hero")
+
+    def test_degree_level_is_more_prominent_than_field(self):
+        page, _ = self.open(1440)
+        sizes = page.evaluate("""() => [...document.querySelectorAll('#education .edu')].map(e => {
+            const [level, field] = e.children;
+            return [parseFloat(getComputedStyle(level).fontSize), parseFloat(getComputedStyle(field).fontSize)];
+        })""")
+        self.assertEqual(len(sizes), 3)
+        for level, field in sizes:
+            self.assertGreaterEqual(level, field * 1.5, "PhD/MS/BE should be clearly larger than the subject")
 
     def test_desktop_hides_menu_button(self):
         page, _ = self.open(1440)
