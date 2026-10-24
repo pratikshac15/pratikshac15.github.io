@@ -153,6 +153,21 @@ class ContentTests(unittest.TestCase):
         self.assertIsNone(DOC.get_element_by_id("education", None))
         self.assertNotIn("Education", text_of("recognition"))
 
+    def test_leadership_lists_all_roles(self):
+        lead = text_of("leadership")
+        self.assertIsNotNone(lead, "no #leadership block")
+        for item in ("Global Tide Mentor", "President", "Vice President", "Secretary",
+                     "Indian Students Association of Tuscaloosa", "UA Vedic Society",
+                     "2022–2023", "2023–2024", "2024–2025"):
+            self.assertIn(item, lead)
+
+    def test_professional_service_listed(self):
+        svc = text_of("service")
+        self.assertIsNotNone(svc, "no #service block")
+        for item in ("Energy and Buildings", "GLOBECOM", "WUWNet", "Alabama Robotics Competition",
+                     "Undergraduate Research & Creative Activity Conference"):
+            self.assertIn(item, svc)
+
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
         self.assertIsNotNone(tb, "no #toolbox section")
