@@ -201,6 +201,15 @@ class ContentTests(unittest.TestCase):
         title = " ".join(" ".join(el.itertext()).split())
         self.assertEqual(title, "Recognition & Service")
 
+    def test_entrepreneurship_listed(self):
+        ent = text_of("entrepreneurship")
+        self.assertIsNotNone(ent, "no #entrepreneurship block")
+        for item in ("gBETA Accelerator", "gener8tor", "2026", "NSF I-Corps Regional Program", "2025"):
+            self.assertIn(item, ent)
+        order = DOC.xpath("//*[@id='recognition']//*[@id]/@id")
+        self.assertLess(order.index("leadership"), order.index("entrepreneurship"))
+        self.assertLess(order.index("entrepreneurship"), order.index("service"))
+
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
         self.assertIsNotNone(tb, "no #toolbox section")
