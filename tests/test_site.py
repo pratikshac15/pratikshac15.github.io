@@ -168,6 +168,39 @@ class ContentTests(unittest.TestCase):
                      "Undergraduate Research & Creative Activity Conference"):
             self.assertIn(item, svc)
 
+    def test_hero_has_single_identity_line(self):
+        hero = DOC.get_element_by_id("home")
+        self.assertEqual(len(hero.xpath(".//*[contains(@class,'hero-context')]")), 0, "merge into one line")
+        role = " ".join(hero.xpath(".//*[contains(@class,'hero-role')]")[0].text_content().split())
+        self.assertEqual(role, "PhD Candidate, Computer Science · The University of Alabama")
+
+    def test_hero_intro_is_specific(self):
+        intro = DOC.xpath("//*[contains(@class,'hero-intro-v15')]")[0].text_content()
+        self.assertIn("adversarially robust", intro)
+        self.assertNotIn("intersection of AI", intro)
+
+    def test_open_to_roles_sits_with_buttons(self):
+        kids = [c.get("class", "") for c in DOC.xpath("//*[contains(@class,'hero-copyblock')]/*")]
+        open_i = next(i for i, c in enumerate(kids) if "hero-open" in c)
+        note_i = next(i for i, c in enumerate(kids) if "hero-note" in c)
+        btn_i = next(i for i, c in enumerate(kids) if "hero-actions" in c)
+        self.assertTrue(note_i < open_i < btn_i, "order should be poem, open-to line, buttons")
+
+    def test_hero_has_github_button(self):
+        hrefs = DOC.xpath("//*[contains(@class,'hero-actions')]//a/@href")
+        self.assertIn("https://github.com/pratikshac15", hrefs)
+
+    def test_education_in_toolbox(self):
+        tb = text_of("toolbox")
+        for item in ("Education", "PhD, Computer Science", "MS, Computer Science",
+                     "BE, Computer Engineering", "Savitribai Phule Pune University"):
+            self.assertIn(item, tb)
+
+    def test_recognition_title(self):
+        el = DOC.xpath("//*[contains(@class,'people-big')]")[0]
+        title = " ".join(" ".join(el.itertext()).split())
+        self.assertEqual(title, "Recognition & Service")
+
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
         self.assertIsNotNone(tb, "no #toolbox section")
@@ -283,6 +316,16 @@ class BrowserTests(unittest.TestCase):
                     return Math.round((el.getBoundingClientRect().height - pad) / lh);
                 }""")
                 self.assertEqual(lines, 1)
+
+    def test_open_to_roles_text_flows_as_one_block(self):
+        """The pill's words must wrap like a sentence, not split into flex columns."""
+        for width in (390, 1440):
+            with self.subTest(width=width):
+                page, _ = self.open(width)
+                kids = page.evaluate("""() => [...document.querySelector('.hero-open').childNodes]
+                    .filter(n => n.nodeType === 1 || n.textContent.trim())
+                    .map(n => n.nodeType === 1 ? n.tagName.toLowerCase() : '#text')""")
+                self.assertEqual(kids, ["i", "span"])
 
     def test_desktop_hides_menu_button(self):
         page, _ = self.open(1440)
