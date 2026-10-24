@@ -136,6 +136,13 @@ class ContentTests(unittest.TestCase):
                 target = DOC.get_element_by_id(href[1:])
                 self.assertIn(target.tag, ("article",), f"{href} should point at a project card")
 
+    def test_google_scholar_linked(self):
+        scholar = "https://scholar.google.com/citations?user=d3o_3GsAAAAJ"
+        self.assertIn(scholar, DOC.get_element_by_id("papers").xpath(".//a/@href"))
+        self.assertIn(scholar, DOC.get_element_by_id("contact").xpath(".//a/@href"))
+        data = json.loads(DOC.xpath("//script[@type='application/ld+json']/text()")[0])
+        self.assertIn(scholar, data["sameAs"])
+
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
         self.assertIsNotNone(tb, "no #toolbox section")
