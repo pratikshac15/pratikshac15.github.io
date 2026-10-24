@@ -54,7 +54,7 @@ class StructureTests(unittest.TestCase):
 
     def test_nav_covers_every_major_section(self):
         targets = set(DOC.xpath("//*[contains(@class,'navlinks')]//a/@href"))
-        for sec in ("#work", "#builds", "#papers", "#presentations", "#recognition", "#contact"):
+        for sec in ("#work", "#builds", "#education", "#papers", "#presentations", "#recognition", "#contact"):
             self.assertIn(sec, targets, f"nav missing {sec}")
 
     def test_images_have_alt_and_dimensions(self):
@@ -150,7 +150,6 @@ class ContentTests(unittest.TestCase):
         self.assertNotIn("Research Scientist", line)
 
     def test_education_not_in_recognition(self):
-        self.assertIsNone(DOC.get_element_by_id("education", None))
         self.assertNotIn("Education", text_of("recognition"))
 
     def test_leadership_lists_all_roles(self):
@@ -190,11 +189,18 @@ class ContentTests(unittest.TestCase):
         hrefs = DOC.xpath("//*[contains(@class,'hero-actions')]//a/@href")
         self.assertIn("https://github.com/pratikshac15", hrefs)
 
-    def test_education_in_toolbox(self):
-        tb = text_of("toolbox")
-        for item in ("Education", "PhD, Computer Science", "MS, Computer Science",
-                     "BE, Computer Engineering", "Savitribai Phule Pune University"):
-            self.assertIn(item, tb)
+    def test_education_section(self):
+        edu = DOC.get_element_by_id("education", None)
+        self.assertIsNotNone(edu, "no #education section")
+        self.assertEqual(edu.tag, "section")
+        rows = [[" ".join(e.text_content().split()) for e in row.xpath("./*")]
+                for row in edu.xpath(".//*[contains(concat(' ', @class, ' '), ' edu ')]")]
+        self.assertEqual(rows, [
+            ["PhD", "Computer Science", "The University of Alabama"],
+            ["MS", "Computer Science", "The University of Alabama"],
+            ["BE", "Computer Engineering", "Savitribai Phule Pune University"],
+        ])
+        self.assertNotIn("Education", text_of("toolbox"), "education should not be duplicated in toolbox")
 
     def test_recognition_title(self):
         el = DOC.xpath("//*[contains(@class,'people-big')]")[0]
@@ -335,6 +341,25 @@ class BrowserTests(unittest.TestCase):
                     .filter(n => n.nodeType === 1 || n.textContent.trim())
                     .map(n => n.nodeType === 1 ? n.tagName.toLowerCase() : '#text')""")
                 self.assertEqual(kids, ["i", "span"])
+
+    def test_desktop_nav_fits_on_one_row(self):
+        for width in (1001, 1024, 1280, 1440):
+            with self.subTest(width=width):
+                page, _ = self.open(width)
+                tops = page.evaluate("[...document.querySelectorAll('.navlinks a')].filter(a=>a.offsetParent).map(a=>Math.round(a.getBoundingClientRect().top))")
+                self.assertTrue(tops, "desktop links should be visible")
+                self.assertEqual(len(set(tops)), 1, "nav links wrapped onto two rows")
+                overlap = page.evaluate("""() => {
+                    const r = document.querySelector('.navlinks').getBoundingClientRect();
+                    const c = document.querySelector('.nav-contact').getBoundingClientRect();
+                    const l = document.querySelector('.logo').getBoundingClientRect();
+                    return r.right > c.left - 8 || r.left < l.right + 8;
+                }""")
+                self.assertFalse(overlap, "nav links collide with logo or Say hello")
+
+    def test_menu_button_up_to_1000px(self):
+        page, _ = self.open(1000)
+        self.assertTrue(page.locator(".menu-toggle").is_visible())
 
     def test_desktop_hides_menu_button(self):
         page, _ = self.open(1440)
