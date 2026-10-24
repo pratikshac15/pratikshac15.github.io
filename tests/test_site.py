@@ -143,6 +143,20 @@ class ContentTests(unittest.TestCase):
         data = json.loads(DOC.xpath("//script[@type='application/ld+json']/text()")[0])
         self.assertIn(scholar, data["sameAs"])
 
+    def test_hero_lists_target_roles(self):
+        hero = text_of("home")
+        for role in ("Applied Scientist", "AI/ML Engineer", "Software Engineer", "Research Scientist"):
+            self.assertIn(role, hero)
+
+    def test_education_lists_all_degrees(self):
+        edu = text_of("education")
+        self.assertIsNotNone(edu, "no #education block")
+        for degree in ("PhD, Computer Science", "MS, Computer Science", "BE, Computer Engineering",
+                       "The University of Alabama", "Savitribai Phule Pune University"):
+            self.assertIn(degree, edu)
+        self.assertLess(edu.index("PhD"), edu.index("MS"))
+        self.assertLess(edu.index("MS"), edu.index("BE"))
+
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
         self.assertIsNotNone(tb, "no #toolbox section")
