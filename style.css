@@ -459,6 +459,5 @@ section[id],article[id]{scroll-margin-top:24px}
 .education .section-head{padding-top:60px;padding-bottom:40px}
 .hero{background:var(--cream)}
 
-/* ---------- Section color rhythm: no two neighbours alike ---------- */
-.education{background:var(--sage);border-top:0}
-.story-ciroh{background:#f2ded9}
+/* ---------- Education uses sand to separate it from the hero ---------- */
+.education{background:#eee7e1;border-top:0}

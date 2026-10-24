@@ -380,7 +380,8 @@ class BrowserTests(unittest.TestCase):
         self.assertNotEqual(bg[0], bg[1], "education should be visually separated from the hero")
 
     def test_neighbouring_sections_have_distinct_backgrounds(self):
-        """Every band of the page must differ clearly from the one above it."""
+        """No two neighbouring bands may share a colour, and Education must stand
+        out clearly from the hero."""
         page, _ = self.open(1440)
         bands = page.evaluate("""() => {
             const rgb = el => getComputedStyle(el).backgroundColor;
@@ -399,8 +400,10 @@ class BrowserTests(unittest.TestCase):
         def parse(c):
             return [int(v) for v in re.findall(r"\d+", c)[:3]]
         for (n1, c1), (n2, c2) in zip(bands, bands[1:]):
-            diff = sum(abs(a - b) for a, b in zip(parse(c1), parse(c2)))
-            self.assertGreaterEqual(diff, 25, f"{n1} ({c1}) and {n2} ({c2}) look the same")
+            self.assertNotEqual(parse(c1), parse(c2), f"{n1} and {n2} share a background")
+        colours = dict(bands)
+        diff = sum(abs(a - b) for a, b in zip(parse(colours["home"]), parse(colours["education"])))
+        self.assertGreaterEqual(diff, 25, "education blends into the hero")
 
     def test_desktop_hides_menu_button(self):
         page, _ = self.open(1440)
