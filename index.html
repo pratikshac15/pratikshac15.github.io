@@ -6,6 +6,30 @@
 <meta name="description" content="Portfolio of Pratiksha Chaudhari, a PhD candidate and computer scientist working across AI, scientific computing, machine learning, and research software.">
 <meta name="theme-color" content="#fbf8f3">
 <title>Pratiksha Chaudhari | Computer Scientist & Researcher</title>
+<link rel="canonical" href="https://pratikshac15.github.io/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://pratikshac15.github.io/">
+<meta property="og:title" content="Pratiksha Chaudhari | Computer Scientist & AI/ML Researcher">
+<meta property="og:description" content="PhD candidate at The University of Alabama working on robust deep learning, computer vision, time series, and scientific computing.">
+<meta property="og:image" content="https://pratikshac15.github.io/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pratiksha Chaudhari, computer scientist and AI/ML researcher">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Pratiksha Chaudhari",
+  "url": "https://pratikshac15.github.io/",
+  "image": "https://pratikshac15.github.io/assets/portrait.jpg",
+  "jobTitle": "PhD Candidate, Computer Science",
+  "affiliation": {"@type": "CollegeOrUniversity", "name": "The University of Alabama"},
+  "knowsAbout": ["Machine learning", "Deep learning", "Computer vision", "Time series", "Adversarial robustness", "Scientific computing"],
+  "sameAs": ["https://www.linkedin.com/in/pratikshac15", "https://github.com/pratikshac15"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +38,8 @@
 <body>
 <nav class="nav" aria-label="Primary navigation">
   <a class="logo" href="#home" aria-label="Pratiksha Chaudhari home">PC<span>●</span></a>
-  <div class="navlinks"><a href="#thinking">Thinking</a><a href="#work">Projects</a><a href="#papers">Publications</a><a href="#recognition">Recognition</a><a href="#perspective">Perspective</a></div>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navlinks"><span class="menu-label">Menu</span><span class="menu-bars" aria-hidden="true"></span></button>
+  <div class="navlinks" id="navlinks"><a href="#thinking">Thinking</a><a href="#work">Projects</a><a href="#builds">Builds</a><a href="#papers">Publications</a><a href="#presentations">Talks</a><a href="#recognition">Recognition</a><a href="#perspective">Perspective</a><a class="nav-mobile-only" href="#contact">Say hello</a></div>
   <a class="nav-contact" href="#contact">Say hello ↘</a>
 </nav>
 
@@ -25,6 +50,7 @@
     <p class="hero-role">COMPUTER SCIENTIST · RESEARCHER · PhD CANDIDATE</p>
     <p class="hero-context">University of Alabama · Computer Science · Tuscaloosa, Alabama</p>
     <p class="hero-intro-v15">I work at the intersection of AI, scientific computing, and software, turning complex data into reliable models, scalable systems, and practical tools for real-world problems.</p>
+    <p class="hero-open"><i aria-hidden="true"></i>Open to full-time Applied Scientist, ML Engineer, and research roles</p>
     <p class="hero-note-v15 hero-note-inline">Sometimes through code,<br>Sometimes through a camera,<br>Sometimes with a pencil.</p>
     <div class="hero-actions">
       <a href="#work">VIEW PROJECTS <span>↓</span></a>
@@ -42,11 +68,11 @@
   </header>
   <div class="thought-stage">
     <div class="thought-orbit">
-      <button class="thought active" data-key="PERCEPTION" data-q="How do machines make sense of what they see?" data-copy="This thread runs through scientific imaging, computer vision, particle characterization, classification, detection, segmentation, and environmental imagery."><span>.</span>PERCEPTION</button>
-      <button class="thought" data-key="SIGNALS" data-q="What can changing signals reveal?" data-copy="Sensor streams, voice waveforms, multivariate time series, hydrologic records, and experimental measurements all ask us to find structure in change."><span>.</span>SIGNALS</button>
-      <button class="thought" data-key="ROBUSTNESS" data-q="What happens when clean assumptions disappear?" data-copy="Adversarial attacks, noisy measurements, heterogeneous devices, imperfect data, and evaluation make trustworthiness part of the engineering problem."><span>.</span>ROBUSTNESS</button>
-      <button class="thought" data-key="SCALE" data-q="What changes when a research problem grows?" data-copy="Decades of environmental data, thousands of catchments, distributed processing, cloud storage, memory constraints, and multi-architecture software turn experiments into infrastructure."><span>.</span>SCALE</button>
-      <button class="thought" data-key="SYSTEMS" data-q="How does an idea become something another researcher can actually run?" data-copy="Reproducible environments, pipelines, containers, CI, interfaces, configuration, testing, and open-source scientific software are often what make research usable."><span>.</span>SYSTEMS</button>
+      <button class="thought active" aria-pressed="true" data-key="PERCEPTION" data-q="How do machines make sense of what they see?" data-copy="This thread runs through scientific imaging, computer vision, particle characterization, classification, detection, segmentation, and environmental imagery."><span>.</span>PERCEPTION</button>
+      <button class="thought" aria-pressed="false" data-key="SIGNALS" data-q="What can changing signals reveal?" data-copy="Sensor streams, voice waveforms, multivariate time series, hydrologic records, and experimental measurements all ask us to find structure in change."><span>.</span>SIGNALS</button>
+      <button class="thought" aria-pressed="false" data-key="ROBUSTNESS" data-q="What happens when clean assumptions disappear?" data-copy="Adversarial attacks, noisy measurements, heterogeneous devices, imperfect data, and evaluation make trustworthiness part of the engineering problem."><span>.</span>ROBUSTNESS</button>
+      <button class="thought" aria-pressed="false" data-key="SCALE" data-q="What changes when a research problem grows?" data-copy="Decades of environmental data, thousands of catchments, distributed processing, cloud storage, memory constraints, and multi-architecture software turn experiments into infrastructure."><span>.</span>SCALE</button>
+      <button class="thought" aria-pressed="false" data-key="SYSTEMS" data-q="How does an idea become something another researcher can actually run?" data-copy="Reproducible environments, pipelines, containers, CI, interfaces, configuration, testing, and open-source scientific software are often what make research usable."><span>.</span>SYSTEMS</button>
       <div class="thought-display">
         <small id="thoughtKey">PERCEPTION</small>
         <h3 id="thoughtQ">How do machines make sense of what they see?</h3>
@@ -160,6 +186,63 @@
         <div class="story-tags">VOICE · WAVEFORMS · MULTIMODAL FEEDBACK · INTERACTION · VISUALIZATION · HUMAN-CENTERED AI</div>
       </div>
     </article>
+  </div>
+</section>
+
+<section class="builds" id="builds">
+  <header class="section-head">
+    <div><p>SMALLER BUILDS, SHARPER QUESTIONS.</p><h2>Also <em>built</em></h2>
+    <p class="builds-lede">Self-directed projects that take the robustness questions from my dissertation into marketplace integrity, fraud, and the systems that put models in front of people.</p></div>
+  </header>
+  <div class="build-grid">
+    <article class="build build-feature">
+      <span class="build-kind">LLM SECURITY · TRUST &amp; SAFETY</span>
+      <h3>What happens when a fake-review writer has an LLM?</h3>
+      <p>Compared classic word-substitution attacks with LLM rewrites (Qwen2.5) against a fine-tuned DistilRoBERTa fake-review detector, then hardened it with adversarial training on 1,000 LLM rewrites.</p>
+      <div class="build-stats">
+        <div><strong>100%</strong><span>evasion by adaptive LLM rewrites, ~1.1 queries</span></div>
+        <div><strong>100% → 12%</strong><span>fresh-attack evasion after hardening</span></div>
+        <div><strong>6.8% → 6.7%</strong><span>false positives on genuine reviews</span></div>
+      </div>
+      <p class="build-tags">PYTORCH · HUGGING FACE TRANSFORMERS · DISTILROBERTA · QWEN2.5 · ADVERSARIAL TRAINING</p>
+      <div class="build-links"><a href="https://github.com/pratikshac15/llm-fake-review-attacks" target="_blank" rel="noopener noreferrer">CODE ↗</a><a href="https://colab.research.google.com/github/pratikshac15/llm-fake-review-attacks/blob/main/llm_fake_review_attacks.ipynb" target="_blank" rel="noopener noreferrer">RUN IN COLAB ↗</a></div>
+    </article>
+    <article class="build build-feature">
+      <span class="build-kind">GRAPH ML · FRAUD DETECTION</span>
+      <h3>Do graph neural networks actually catch more fraud?</h3>
+      <p>Illicit-transaction detection on the Elliptic Bitcoin graph (203,769 transactions) under a strict temporal split, comparing logistic regression, XGBoost, GCN, GraphSAGE, and hybrids.</p>
+      <div class="build-stats">
+        <div><strong>0.80 vs 0.55</strong><span>PR-AUC: XGBoost + neighbor features vs GraphSAGE</span></div>
+        <div><strong>0.85 → 0.03</strong><span>illicit F1 after a dark-market shutdown: concept drift</span></div>
+      </div>
+      <p class="build-tags">XGBOOST · PYTORCH GEOMETRIC · GCN · GRAPHSAGE · TEMPORAL EVALUATION</p>
+      <div class="build-links"><a href="https://github.com/pratikshac15/elliptic-fraud-gnn" target="_blank" rel="noopener noreferrer">CODE ↗</a><a href="https://colab.research.google.com/github/pratikshac15/elliptic-fraud-gnn/blob/main/elliptic_fraud_gnn.ipynb" target="_blank" rel="noopener noreferrer">RUN IN COLAB ↗</a></div>
+    </article>
+    <article class="build">
+      <span class="build-kind">AI PLATFORM · PERSONAL PROJECT</span>
+      <h3>ResearchAI</h3>
+      <p>A containerized AI platform with OIDC sign-in, JWT validation, role-based access across three roles, and an AI gateway that logs latency, token use, and audit events for admin-only monitoring.</p>
+      <p class="build-tags">REACT · FASTAPI · KEYCLOAK · OLLAMA · DOCKER · PYTEST · GITHUB ACTIONS</p>
+    </article>
+    <article class="build">
+      <span class="build-kind">FULL-STACK SOFTWARE</span>
+      <h3>IssueFlow</h3>
+      <p>A full-stack issue tracker with a validated REST API, search and filtering, a dashboard, automated backend tests, and CI on every push.</p>
+      <p class="build-tags">JAVA 21 · SPRING BOOT · REACT · TYPESCRIPT · JUNIT · GITHUB ACTIONS</p>
+      <div class="build-links"><a href="https://github.com/pratikshac15/IssueFlow" target="_blank" rel="noopener noreferrer">CODE ↗</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="toolbox" id="toolbox">
+  <header class="section-head">
+    <div><p>WHAT I REACH FOR.</p><h2><em>Toolbox</em></h2></div>
+  </header>
+  <div class="toolbox-grid">
+    <div><h3>Modeling</h3><p>PyTorch · TensorFlow · Hugging Face Transformers · scikit-learn · XGBoost · PyTorch Geometric · OpenCV · YOLO</p></div>
+    <div><h3>Research areas</h3><p>Time series · Computer vision · Adversarial robustness (FGSM, PGD) · LLM attacks &amp; defenses · Graph ML · Hydrologic ML</p></div>
+    <div><h3>Systems &amp; MLOps</h3><p>Docker · Kubernetes · AWS · GCP · Azure · GitHub Actions · Terraform · Linux · HPC &amp; parallel computing</p></div>
+    <div><h3>Software</h3><p>Python · Java · TypeScript · Bash · React · FastAPI · Flask · Spring Boot · SQL &amp; NoSQL · Pytest · JUnit</p></div>
   </div>
 </section>
 
