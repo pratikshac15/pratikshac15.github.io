@@ -117,6 +117,13 @@ class ContentTests(unittest.TestCase):
         for repo in ("llm-fake-review-attacks", "elliptic-fraud-gnn", "IssueFlow", "enterprise-ai-platform"):
             self.assertIn(f"https://github.com/pratikshac15/{repo}", hrefs)
 
+    def test_recognition_lists_only_current_awards(self):
+        rec = text_of("recognition")
+        self.assertNotIn("Poster Presentation", rec)
+        numbers = DOC.xpath("//*[@id='recognition']//article/span/text()")
+        self.assertEqual(numbers, [f"{i:02d}" for i in range(1, len(numbers) + 1)],
+                         "award numbering should be sequential")
+
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
         self.assertIsNotNone(tb, "no #toolbox section")
