@@ -196,9 +196,9 @@ class ContentTests(unittest.TestCase):
         rows = [[" ".join(e.text_content().split()) for e in row.xpath("./*")]
                 for row in edu.xpath(".//*[contains(concat(' ', @class, ' '), ' edu ')]")]
         self.assertEqual(rows, [
-            ["PhD", "Computer Science", "The University of Alabama"],
-            ["MS", "Computer Science", "The University of Alabama"],
-            ["BE", "Computer Engineering", "Savitribai Phule Pune University"],
+            ["PhD", "Computer Science", "The University of Alabama · USA"],
+            ["MS", "Computer Science", "The University of Alabama · USA"],
+            ["BE", "Computer Engineering", "Savitribai Phule Pune University · India"],
         ])
         self.assertNotIn("Education", text_of("toolbox"), "education should not be duplicated in toolbox")
 
