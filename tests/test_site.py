@@ -144,18 +144,14 @@ class ContentTests(unittest.TestCase):
         self.assertIn(scholar, data["sameAs"])
 
     def test_hero_lists_target_roles(self):
-        hero = text_of("home")
-        for role in ("Applied Scientist", "AI/ML Engineer", "Software Engineer", "Research Scientist"):
-            self.assertIn(role, hero)
+        line = " ".join(DOC.xpath("//*[contains(@class,'hero-open')]")[0].text_content().split())
+        for role in ("Applied Scientist", "AI/ML Engineer", "Software Engineer"):
+            self.assertIn(role, line)
+        self.assertNotIn("Research Scientist", line)
 
-    def test_education_lists_all_degrees(self):
-        edu = text_of("education")
-        self.assertIsNotNone(edu, "no #education block")
-        for degree in ("PhD, Computer Science", "MS, Computer Science", "BE, Computer Engineering",
-                       "The University of Alabama", "Savitribai Phule Pune University"):
-            self.assertIn(degree, edu)
-        self.assertLess(edu.index("PhD"), edu.index("MS"))
-        self.assertLess(edu.index("MS"), edu.index("BE"))
+    def test_education_not_in_recognition(self):
+        self.assertIsNone(DOC.get_element_by_id("education", None))
+        self.assertNotIn("Education", text_of("recognition"))
 
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
@@ -260,6 +256,18 @@ class BrowserTests(unittest.TestCase):
         page.click(".menu-toggle")
         page.keyboard.press("Escape")
         self.assertEqual(page.get_attribute(".menu-toggle", "aria-expanded"), "false")
+
+    def test_open_to_roles_fits_on_one_line(self):
+        for width in (1024, 1150, 1200, 1280, 1366, 1440, 1920):  # laptops and up; phones and tablets may wrap
+            with self.subTest(width=width):
+                page, _ = self.open(width)
+                lines = page.evaluate("""() => {
+                    const el = document.querySelector('.hero-open');
+                    const lh = parseFloat(getComputedStyle(el).lineHeight) || 16;
+                    const pad = parseFloat(getComputedStyle(el).paddingTop) * 2;
+                    return Math.round((el.getBoundingClientRect().height - pad) / lh);
+                }""")
+                self.assertEqual(lines, 1)
 
     def test_desktop_hides_menu_button(self):
         page, _ = self.open(1440)
