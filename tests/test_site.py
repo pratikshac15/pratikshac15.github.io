@@ -114,7 +114,7 @@ class ContentTests(unittest.TestCase):
         builds = DOC.get_element_by_id("builds", None)
         self.assertIsNotNone(builds, "no #builds section")
         hrefs = builds.xpath(".//a/@href")
-        for repo in ("llm-fake-review-attacks", "elliptic-fraud-gnn", "IssueFlow"):
+        for repo in ("llm-fake-review-attacks", "elliptic-fraud-gnn", "IssueFlow", "enterprise-ai-platform"):
             self.assertIn(f"https://github.com/pratikshac15/{repo}", hrefs)
 
     def test_toolbox_section_lists_core_skills(self):
