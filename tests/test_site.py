@@ -379,6 +379,29 @@ class BrowserTests(unittest.TestCase):
         bg = page.evaluate("[getComputedStyle(document.querySelector('.hero')).backgroundColor, getComputedStyle(document.querySelector('#education')).backgroundColor]")
         self.assertNotEqual(bg[0], bg[1], "education should be visually separated from the hero")
 
+    def test_neighbouring_sections_have_distinct_backgrounds(self):
+        """Every band of the page must differ clearly from the one above it."""
+        page, _ = self.open(1440)
+        bands = page.evaluate("""() => {
+            const rgb = el => getComputedStyle(el).backgroundColor;
+            const out = [];
+            for (const sec of document.querySelectorAll('main > section')) {
+                if (sec.id === 'work') {
+                    out.push(['work-intro', rgb(sec)]);
+                    sec.querySelectorAll('.story').forEach(st => {
+                        const c = rgb(st);
+                        out.push([st.id, c === 'rgba(0, 0, 0, 0)' ? rgb(sec) : c]);
+                    });
+                } else out.push([sec.id, rgb(sec)]);
+            }
+            return out;
+        }""")
+        def parse(c):
+            return [int(v) for v in re.findall(r"\d+", c)[:3]]
+        for (n1, c1), (n2, c2) in zip(bands, bands[1:]):
+            diff = sum(abs(a - b) for a, b in zip(parse(c1), parse(c2)))
+            self.assertGreaterEqual(diff, 25, f"{n1} ({c1}) and {n2} ({c2}) look the same")
+
     def test_desktop_hides_menu_button(self):
         page, _ = self.open(1440)
         self.assertFalse(page.locator(".menu-toggle").is_visible())
