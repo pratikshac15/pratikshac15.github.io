@@ -455,3 +455,6 @@ section[id],article[id]{scroll-margin-top:24px}
   .edu,.edu+.edu{padding:20px 0 12px;border-left:0}
   .edu+.edu{border-top:1px solid var(--line)}
 }
+.education{background:var(--paper);border-top:1px solid var(--line)}
+.education .section-head{padding-top:60px;padding-bottom:40px}
+.hero{background:var(--cream)}

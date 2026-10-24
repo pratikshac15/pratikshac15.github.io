@@ -216,6 +216,16 @@ class ContentTests(unittest.TestCase):
         self.assertLess(order.index("leadership"), order.index("entrepreneurship"))
         self.assertLess(order.index("entrepreneurship"), order.index("service"))
 
+    def test_education_directly_after_hero(self):
+        sections = DOC.xpath("//main/section/@id")
+        self.assertEqual(sections[:2], ["home", "education"])
+
+    def test_nav_order_matches_page_order(self):
+        sections = DOC.xpath("//main/section/@id")
+        tabs = [h[1:] for h in DOC.xpath("//*[contains(@class,'navlinks')]//a/@href")]
+        positions = [sections.index(t) for t in tabs]
+        self.assertEqual(positions, sorted(positions), f"tabs out of page order: {tabs}")
+
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
         self.assertIsNotNone(tb, "no #toolbox section")
@@ -360,6 +370,14 @@ class BrowserTests(unittest.TestCase):
     def test_menu_button_up_to_1000px(self):
         page, _ = self.open(1000)
         self.assertTrue(page.locator(".menu-toggle").is_visible())
+
+    def test_education_follows_hero_without_big_gap(self):
+        page, _ = self.open(1440)
+        gap = page.evaluate("""() => document.querySelector('#education .section-head p').getBoundingClientRect().top
+                                   - document.querySelector('.portrait-wrap').getBoundingClientRect().bottom""")
+        self.assertLess(gap, 170)
+        bg = page.evaluate("[getComputedStyle(document.querySelector('.hero')).backgroundColor, getComputedStyle(document.querySelector('#education')).backgroundColor]")
+        self.assertNotEqual(bg[0], bg[1], "education should be visually separated from the hero")
 
     def test_desktop_hides_menu_button(self):
         page, _ = self.open(1440)
