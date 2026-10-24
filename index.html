@@ -63,22 +63,40 @@
 </section>
 
 <section class="thinking" id="thinking">
-  <header class="section-head">
-    <div><p>THINGS I THINK ABOUT</p><h2>Questions that keep<br><em>pulling me in.</em></h2><p class="orbit-hint">Choose a topic to follow the question.</p></div>
+  <header class="section-head thinking-head">
+    <div><p>THINGS I THINK ABOUT</p><h2>Questions that keep <em>pulling me in.</em></h2></div>
   </header>
-  <div class="thought-stage">
-    <div class="thought-orbit">
-      <button class="thought active" aria-pressed="true" data-key="PERCEPTION" data-q="How do machines make sense of what they see?" data-copy="This thread runs through scientific imaging, computer vision, particle characterization, classification, detection, segmentation, and environmental imagery."><span>.</span>PERCEPTION</button>
-      <button class="thought" aria-pressed="false" data-key="SIGNALS" data-q="What can changing signals reveal?" data-copy="Sensor streams, voice waveforms, multivariate time series, hydrologic records, and experimental measurements all ask us to find structure in change."><span>.</span>SIGNALS</button>
-      <button class="thought" aria-pressed="false" data-key="ROBUSTNESS" data-q="What happens when clean assumptions disappear?" data-copy="Adversarial attacks, noisy measurements, heterogeneous devices, imperfect data, and evaluation make trustworthiness part of the engineering problem."><span>.</span>ROBUSTNESS</button>
-      <button class="thought" aria-pressed="false" data-key="SCALE" data-q="What changes when a research problem grows?" data-copy="Decades of environmental data, thousands of catchments, distributed processing, cloud storage, memory constraints, and multi-architecture software turn experiments into infrastructure."><span>.</span>SCALE</button>
-      <button class="thought" aria-pressed="false" data-key="SYSTEMS" data-q="How does an idea become something another researcher can actually run?" data-copy="Reproducible environments, pipelines, containers, CI, interfaces, configuration, testing, and open-source scientific software are often what make research usable."><span>.</span>SYSTEMS</button>
-      <div class="thought-display">
-        <small id="thoughtKey">PERCEPTION</small>
-        <h3 id="thoughtQ">How do machines make sense of what they see?</h3>
-        <p id="thoughtCopy">This thread runs through scientific imaging, computer vision, particle characterization, classification, detection, segmentation, and environmental imagery.</p>
-      </div>
-    </div>
+  <div class="question-grid">
+    <article class="question">
+      <span class="question-key">PERCEPTION</span>
+      <h3>How do machines make sense of what they see?</h3>
+      <p>Scientific imaging, detection, and classification, from particles in moving water to environmental imagery.</p>
+      <div class="question-links"><a href="#proj-micro">Microplastics in motion ↓</a></div>
+    </article>
+    <article class="question">
+      <span class="question-key">SIGNALS</span>
+      <h3>What can changing signals reveal?</h3>
+      <p>Sensor streams, voice waveforms, and multivariate time series all ask us to find structure in change.</p>
+      <div class="question-links"><a href="#proj-thesis">Occupancy detection ↓</a><a href="#proj-voice">AI voice coach ↓</a></div>
+    </article>
+    <article class="question">
+      <span class="question-key">ROBUSTNESS</span>
+      <h3>What happens when clean assumptions disappear?</h3>
+      <p>Adversarial attacks, noisy data, and now LLM-driven attacks make trustworthiness part of the engineering problem.</p>
+      <div class="question-links"><a href="#proj-thesis">ADS-Guard ↓</a><a href="#build-reviews">LLM attacks ↓</a></div>
+    </article>
+    <article class="question">
+      <span class="question-key">SCALE</span>
+      <h3>What changes when a research problem grows?</h3>
+      <p>Decades of water data, thousands of catchments, and cloud workflows turn experiments into infrastructure.</p>
+      <div class="question-links"><a href="#proj-water">Water at scale ↓</a><a href="#build-fraud">Fraud graphs ↓</a></div>
+    </article>
+    <article class="question">
+      <span class="question-key">SYSTEMS</span>
+      <h3>How does an idea become something others can run?</h3>
+      <p>Containers, pipelines, CI, access control, and testing are often what make research usable.</p>
+      <div class="question-links"><a href="#build-researchai">ResearchAI ↓</a><a href="#proj-water">CIROH tooling ↓</a></div>
+    </article>
   </div>
 </section>
 
@@ -92,7 +110,7 @@
   </header>
 
   <div class="story-projects">
-    <article class="story story-robust">
+    <article class="story story-robust" id="proj-thesis">
       <div class="story-kicker"><span class="story-number">01</span><span class="story-label">PHD DISSERTATION THESIS</span></div>
       <div class="story-copy">
         <p class="story-question">Getting the prediction right was only the first question. Could the system remain trustworthy when deliberately challenged?</p>
@@ -118,7 +136,7 @@
       </div>
     </article>
 
-    <article class="story story-ciroh">
+    <article class="story story-ciroh" id="proj-water">
       <div class="story-kicker"><span class="story-number">02</span><span class="story-label">WATER AT SCALE</span></div>
       <div class="story-copy">
         <p class="story-question">What does it take to make national-scale hydrologic data and models actually usable?</p>
@@ -146,7 +164,7 @@
       </div>
     </article>
 
-    <article class="story story-micro">
+    <article class="story story-micro" id="proj-micro">
       <div class="story-kicker"><span class="story-number">03</span><span class="story-label">SEEING WHAT FLOWS BY</span></div>
       <div class="micro-visual" aria-hidden="true">
         <div class="channel-line"></div>
@@ -167,7 +185,7 @@
       </div>
     </article>
 
-    <article class="story story-voice">
+    <article class="story story-voice" id="proj-voice">
       <div class="story-kicker"><span class="story-number">04</span><span class="story-label">AN AI THAT LISTENS BACK</span></div>
       <div class="voice-viz" aria-hidden="true">
         <div class="voice-circle"><span>LISTEN</span></div>
@@ -195,7 +213,7 @@
     <p class="builds-lede">Self-directed projects that take the robustness questions from my dissertation into marketplace integrity, fraud, and the systems that put models in front of people.</p></div>
   </header>
   <div class="build-grid">
-    <article class="build build-feature">
+    <article class="build build-feature" id="build-reviews">
       <span class="build-kind">LLM SECURITY · TRUST &amp; SAFETY</span>
       <h3>What happens when a fake-review writer has an LLM?</h3>
       <p>Compared classic word-substitution attacks with LLM rewrites (Qwen2.5) against a fine-tuned DistilRoBERTa fake-review detector, then hardened it with adversarial training on 1,000 LLM rewrites.</p>
@@ -207,7 +225,7 @@
       <p class="build-tags">PYTORCH · HUGGING FACE TRANSFORMERS · DISTILROBERTA · QWEN2.5 · ADVERSARIAL TRAINING</p>
       <div class="build-links"><a href="https://github.com/pratikshac15/llm-fake-review-attacks" target="_blank" rel="noopener noreferrer">CODE ↗</a><a href="https://colab.research.google.com/github/pratikshac15/llm-fake-review-attacks/blob/main/llm_fake_review_attacks.ipynb" target="_blank" rel="noopener noreferrer">RUN IN COLAB ↗</a></div>
     </article>
-    <article class="build build-feature">
+    <article class="build build-feature" id="build-fraud">
       <span class="build-kind">GRAPH ML · FRAUD DETECTION</span>
       <h3>Do graph neural networks actually catch more fraud?</h3>
       <p>Illicit-transaction detection on the Elliptic Bitcoin graph (203,769 transactions) under a strict temporal split, comparing logistic regression, XGBoost, GCN, GraphSAGE, and hybrids.</p>
@@ -218,7 +236,7 @@
       <p class="build-tags">XGBOOST · PYTORCH GEOMETRIC · GCN · GRAPHSAGE · TEMPORAL EVALUATION</p>
       <div class="build-links"><a href="https://github.com/pratikshac15/elliptic-fraud-gnn" target="_blank" rel="noopener noreferrer">CODE ↗</a><a href="https://colab.research.google.com/github/pratikshac15/elliptic-fraud-gnn/blob/main/elliptic_fraud_gnn.ipynb" target="_blank" rel="noopener noreferrer">RUN IN COLAB ↗</a></div>
     </article>
-    <article class="build">
+    <article class="build" id="build-researchai">
       <span class="build-kind">AI PLATFORM · PERSONAL PROJECT</span>
       <h3>ResearchAI</h3>
       <p>A role-based platform for running local LLMs in research settings: Keycloak sign-in (OIDC/JWT), Student, Faculty and admin roles, a FastAPI gateway for chat and side-by-side model comparison, and admin-only usage analytics and security audit logs.</p>

@@ -418,3 +418,19 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .story,.build,.paper,.presentation,.people-notes article,.gallery figure,.sketch-gallery figure{opacity:1!important;transform:none!important}
 }
+
+/* ---------- Questions (Things I think about) ---------- */
+.thinking-head{padding-bottom:44px}
+.thinking-head h2{font-size:clamp(40px,4.2vw,62px)!important}
+.question-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;padding:0 5.5vw 95px}
+.question{display:flex;flex-direction:column;background:#fbf8f3d9;border:1px solid #e3c9c3;border-radius:6px;padding:22px 20px 20px}
+.question-key{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.09em;color:var(--green)}
+.question h3{font-family:Georgia,serif;font-weight:400;font-size:21px;line-height:1.15;color:var(--wine);margin:12px 0 10px}
+.question p{font-size:13px;line-height:1.6;color:var(--muted)}
+.question-links{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:auto;padding-top:18px;font-family:"DM Mono",monospace;font-size:10.5px;letter-spacing:.03em}
+.question-links a{color:var(--wine);border-bottom:1px solid #d7b9b2;padding-bottom:2px}
+.question-links a:hover{border-color:var(--wine)}
+section[id],article[id]{scroll-margin-top:24px}
+@media(max-width:1200px){.question-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){.question-grid{grid-template-columns:repeat(2,minmax(0,1fr))}section[id],article[id]{scroll-margin-top:72px}}
+@media(max-width:700px){.question-grid{grid-template-columns:1fr;padding:0 6vw 70px;gap:12px}.question{padding:20px 20px 18px}.question h3{font-size:22px;margin:10px 0 8px}.question-links{flex-direction:row;flex-wrap:wrap;gap:8px 18px;padding-top:14px}}

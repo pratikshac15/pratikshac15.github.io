@@ -124,6 +124,18 @@ class ContentTests(unittest.TestCase):
         self.assertEqual(numbers, [f"{i:02d}" for i in range(1, len(numbers) + 1)],
                          "award numbering should be sequential")
 
+    def test_questions_link_to_real_projects(self):
+        cards = DOC.xpath("//*[@id='thinking']//*[contains(concat(' ', normalize-space(@class), ' '), ' question ')]")
+        self.assertEqual(len(cards), 5)
+        ids = set(DOC.xpath("//@id"))
+        for card in cards:
+            links = card.xpath(".//a/@href")
+            self.assertTrue(links, "each question should point to a project")
+            for href in links:
+                self.assertTrue(href.startswith("#") and href[1:] in ids, href)
+                target = DOC.get_element_by_id(href[1:])
+                self.assertIn(target.tag, ("article",), f"{href} should point at a project card")
+
     def test_toolbox_section_lists_core_skills(self):
         tb = text_of("toolbox")
         self.assertIsNotNone(tb, "no #toolbox section")
@@ -193,12 +205,15 @@ class BrowserTests(unittest.TestCase):
         page.wait_for_timeout(300)
         self.assertEqual(errors, [])
 
-    def test_thought_orbit_switches_topic(self):
-        page, _ = self.open(1440)
-        page.click("button[data-key='SCALE']")
-        self.assertEqual(page.inner_text("#thoughtKey"), "SCALE")
-        self.assertEqual(page.get_attribute("button[data-key='SCALE']", "aria-pressed"), "true")
-        self.assertEqual(page.get_attribute("button[data-key='PERCEPTION']", "aria-pressed"), "false")
+    def test_all_questions_visible_without_interaction(self):
+        for width in (390, 1440):
+            with self.subTest(width=width):
+                page, _ = self.open(width)
+                cards = page.locator("#thinking .question")
+                self.assertEqual(cards.count(), 5)
+                for i in range(5):
+                    self.assertTrue(cards.nth(i).locator("h3").is_visible())
+                    self.assertTrue(cards.nth(i).locator("p").is_visible())
 
     def test_mobile_menu_opens_and_navigates(self):
         page, _ = self.open(390, 844)
